@@ -1,0 +1,21 @@
+[package]
+name = "promtester"
+description = "Latency-based load-shedding hyper/tower middleware"
+version = "0.2.0"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+categories = ["network-programming"]
+exclude = ["metrics"]
+
+[dependencies]
+metrics = { version = "0.22.1", optional = false }
+metrics-exporter-prometheus = "0.13"
+# metrics-util = { version = "^0.16", path = "../metrics-util", default-features = false, features = [
+#   "recency",
+#   "registry",
+#   "summary",
+# ] }
+rand = "0.8"
+quanta = { version = "0.12", default-features = false }
+tracing = "0.1"
+tracing-subscriber = "0.3"

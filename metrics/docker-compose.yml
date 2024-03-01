@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus:/etc/prometheus
+    # ports:
+  #     - "9000:9000"
+  #     - "9001:9001"
+  #     - "9090:9090"
+    # can't get host to work, maybe a FW issue w/this Mac that I can't control(managed)
+    network_mode: "host"
+    # networks:
+    #   - backend
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONUMOUS_ORG_ROLE: "admin"
+    volumes:
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml
+    # ports: 
+    #   - "3000:3000"
+    # can't get host to work, maybe a FW issue w/this Mac that I can't control(managed)
+    network_mode: "host"
+    # networks: 
+    #   - backend
+# networks:
+#   backend: {}

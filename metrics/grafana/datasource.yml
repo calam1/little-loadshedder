@@ -1,0 +1,11 @@
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    type: prometheus
+    url: http://localhost:9090
+    # due to using bridge vs host networking can't use localhost
+    # url: http://prometheus:9090
+    # url: http://host.docker.internal:9090
+    isDefault: true
+    access: proxy
+    editable: true

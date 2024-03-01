@@ -1,0 +1,24 @@
+[package]
+name = "client"
+description = "Latency-based load-shedding hyper/tower middleware"
+version = "0.2.0"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+repository = "https://github.com/Skepfyr/little-loadshedder"
+keywords = ["hyper", "middleware", "load"]
+categories = ["network-programming"]
+exclude = ["metrics"]
+
+[dependencies]
+metrics = "0.22.1"
+tower = { version = "0.4", features = ["util"] }
+dialoguer = "0.11"
+futures = "0.3"
+http-body-util = "0.1.0"
+hyper = { version = "1.2", features = ["full"] }
+hyper-util = { version = "0.1.3", features = ["full"] }
+metrics-exporter-prometheus = "0.13"
+rand = "0.8"
+structopt = "0.3"
+tokio = { version = "1", features = ["full"] }
+# tower = "0.4"
