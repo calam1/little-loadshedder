@@ -15,6 +15,7 @@ cargo run http://localhost:8080
 ```
 
 To start Prometheus and Grafana
+NOTE: The network_type is host. I am sure you can run this bridged with some slight changes(I had issues running a host network w/my work Macbook Pro, probably due to firewall restrictions imparted by my company) So I just wanted to get it working and updated this code on Ubuntu, since I wsn't sure if the problems were a docker issue or a code issue, so just took the work computer out of the equation.
 ```
 cd metrics
 docker-compose -f docker-compose.yml up
