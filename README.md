@@ -1,3 +1,35 @@
+This is a copy of https://github.com/Skepfyr/little-loadshedder. I reorged it a little bit to be able to run it as a multi-project file; it'a a bit of a mess right now. But I got it to work.
+
+To start the microservice just run:
+```
+cd microservices
+# this will compile the metrics code, otherwise it won't show up on prometheus
+cargo run --features metrics  
+```
+
+To start up the client
+
+```
+cd client
+cargo run http://localhost:8080
+```
+
+To start Prometheus and Grafana
+```
+cd metrics
+docker-compose -f docker-compose.yml up
+```
+prometheus url: localhost:9090
+grafana url: localhost:3000
+
+once you log in using the user/pwd - admin/admin, select Connections -> datasources, select Prometheus, then import the dashboard you should see a text area cut and paste the dashboard.json into it and import it
+
+NOTE: I had to update the metric-rs/metrics crate to 0.22.1 from 0.20 (this is a bad version, regardless according to crates.io) Unfortunately 0.22.1 is not backwards compatible and I had to make some minor code changes to get this to work.
+
+Big thanks to the original creator of https://github.com/Skepfyr/little-loadshedder
+
+
+
 # Little Loadshedder
 [![Crates.io](https://img.shields.io/crates/v/little-loadshedder.svg)](https://crates.io/crates/little-loadshedder)
 [![API reference](https://docs.rs/little-loadshedder/badge.svg)](https://docs.rs/little-loadshedder/)
